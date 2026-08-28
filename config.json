@@ -1,0 +1,31 @@
+{
+  "idioma": "es",
+  "voz": "es-MX-JorgeNeural",
+  "velocidad_voz": "+8%",
+  "formato": "vertical",
+  "duracion_objetivo_seg": 45,
+  "guion": {
+    "proveedor": "auto",
+    "deepseek_api_key": "",
+    "deepseek_model": "deepseek-chat",
+    "ollama_model": "llama3.2",
+    "ollama_url": "http://localhost:11434"
+  },
+  "clips": {
+    "pexels_api_key": "",
+    "pixabay_api_key": "",
+    "num_clips": 6
+  },
+  "musica": {
+    "carpeta": "music",
+    "volumen": 0.12
+  },
+  "subtitulos": {
+    "fuente": "Arial",
+    "tamano": 16,
+    "palabras_por_linea": 3,
+    "color_primario": "&H00FFFFFF",
+    "color_borde": "&H00000000",
+    "margen_v": 80
+  }
+}

@@ -1,0 +1,5 @@
+# Un tema por linea. Lineas con # se ignoran.
+# Ejemplos:
+3 errores que arruinan tu mezcla en FL Studio
+Como la IA esta cambiando la produccion musical
+5 plugins gratis que suenan como los caros
