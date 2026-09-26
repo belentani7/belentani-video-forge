@@ -1,18 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Belentani Video Forge</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BELENTANI VIDEO FORGE — BELENTANI</title>
 <style>
-  body { font-family: system-ui, sans-serif; background:#0f1115; color:#e5e7eb; max-width:720px; margin:60px auto; padding:0 20px; line-height:1.6; }
-  h1 { font-size:1.6rem; color:#fff; }
-  code { background:#1f2937; padding:.15rem .4rem; border-radius:4px; }
-  a { color:#38bdf8; }
+  :root { --red:#ff0040; --glass:rgba(255,255,255,.07); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { min-height:100%; overflow-x:hidden; background:#0a0a0c; color:#fff;
+    font-family:'Courier New',monospace; }
+  canvas#rain { position:fixed; inset:0; z-index:0; opacity:.45; }
+  .wrap { position:relative; z-index:1; min-height:100vh; display:grid; place-items:center; padding:2rem; }
+  .panel {
+    max-width:680px; width:100%; padding:3rem; border-radius:18px;
+    background:var(--glass); backdrop-filter:blur(25px) saturate(180%);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow: inset 0 6px 12px rgba(255,255,255,.35),
+                inset 0 -40px 40px rgba(255,0,64,.15),
+                0 0 30px rgba(255,0,64,.45);
+  }
+  h1 { font-size:1.5rem; letter-spacing:.25em; color:var(--red); text-shadow:0 0 14px var(--red); }
+  .tag { margin:.8rem 0 2rem; opacity:.65; font-size:.75rem; letter-spacing:.3em; }
+  .grid { display:grid; gap:1rem; }
+  a.card { display:block; padding:1rem 1.2rem; border-radius:12px; text-decoration:none; color:#fff;
+    background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15);
+    transition:.2s; font-size:.9rem; }
+  a.card:hover { border-color:var(--red); box-shadow:0 0 18px rgba(255,0,64,.4); transform:translateY(-2px); }
+  .num { color:var(--red); margin-right:.6rem; }
+  footer { margin-top:2rem; font-size:.7rem; opacity:.4; letter-spacing:.2em; text-align:center; }
 </style>
 </head>
 <body>
-<h1>Belentani Video Forge</h1>
-<p>Motor de generación de vídeo con IA (<code>forge.py</code>). Esta URL sirve como landing del proyecto; el código fuente vive en <a href="https://github.com/belentani7/belentani-video-forge">GitHub</a>.</p>
+<canvas id="rain"></canvas>
+<div class="wrap"><div class="panel">
+  <h1>BELENTANI VIDEO FORGE</h1>
+  <div class="tag">GLASS MACHINE // RED NEON // v1</div>
+  <nav class="grid">
+    <a class="card" href="README.md"><span class="num">01</span> DOCUMENTACIÓN (README)</a>
+    <a class="card" href="https://github.com/belentani7/belentani-video-forge"><span class="num">02</span> REPOSITORIO EN GITHUB</a>
+  </nav>
+  <footer>BELENTANI ECOSYSTEM — belentani.es</footer>
+</div></div>
+<script>
+const c=document.getElementById('rain'),x=c.getContext('2d');
+function rs(){c.width=innerWidth;c.height=innerHeight}rs();onresize=rs;
+const cols='01アイウエオカキクケコ<>/{}#$'.split('');let d=Array(Math.floor(c.width/16)).fill(0);
+setInterval(()=>{x.fillStyle='rgba(10,10,12,.08)';x.fillRect(0,0,c.width,c.height);
+x.fillStyle='#ff0040';x.font='14px monospace';
+d.forEach((y,i)=>{x.fillText(cols[Math.random()*cols.length|0],i*16,y*16);
+d[i]=y*16>c.height&&Math.random()>.975?0:y+1})},50);
+</script>
 </body>
 </html>
